@@ -1,0 +1,123 @@
+
+<!-- form start -->
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+
+                <form class="form-group" #myForm="ngForm" (ngSubmit)="OnSubmit(myForm); myForm.resetForm()">
+                    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="model.id">
+            
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Points 
+                            </h3>
+                        </div>
+            
+                        <div class="panel-body">
+
+                            
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="points">Points </label>
+                                        <input class="form-control" type="text" id="points" required
+                                        name="points" #points="ngModel" [(ngModel)]="model.points">
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="datee">Date</label>
+                                        <input class="form-control" type="date" id="datee" required
+                                        name="datee" #datee="ngModel" [(ngModel)]="model.datee" >
+                                    </div>
+                                </div>
+                            </div>
+            
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="cus_id">Cust ID</label>
+                                        <input class="form-control" type="text" id="cus_id" required
+                                        name="cus_id" #cus_id="ngModel" [(ngModel)]="model.cus_id" >
+                                    </div>
+                                </div>
+                            </div>
+                           
+            
+            
+            
+                            
+                        </div>
+                        <div class="panel-footer">
+                            <button type="submit" value="submit" class="btn btn-primary" [disabled]="!myForm.valid">Save</button>
+                        </div>
+            
+                    </div>
+            
+                </form>
+                
+
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+    
+</div>
+<!-- form end -->
+
+
+
+
+<!-- table start -->
+<div class="container">
+    <div class="col-md-8">
+        <div class="form-group">
+            <div class="table-responsive">
+                <table class="table table-hover">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th> Points</th>
+                            <th>datee</th>
+                            <th>Cust ID</th>
+                            <th colspan="2">Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let key of points_list;">
+                            <td>{{key.id}}</td>
+                            <td>{{key.points}}</td>
+                            <td>{{key.datee}}</td>
+                            <td>{{key.cus_id}}</td>
+                            <td><button class="btn btn-warning btn-sm" type="button" value="button" (click)="editRecord_or_populate_form(key)"><span class="glyphicon glyphicon-edit"></span> EDIT</button></td>
+                            <td><button class="btn btn-danger btn-sm" type="button" value="button" (click)="deleteRecord(key.id)"><span class="glyphicon glyphicon-trash"></span> DELETE</button></td>
+                        </tr>
+                    </tbody>
+
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- table end -->
+
+
+
+
+
+
+
